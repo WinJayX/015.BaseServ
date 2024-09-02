@@ -1,0 +1,55 @@
+server:
+  port: 7091
+
+spring:
+  application:
+    name: seata-server
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: ${user.home}/logs/seata
+  extend:
+    logstash-appender:
+      destination: 127.0.0.1:4560
+    kafka-appender:
+      bootstrap-servers: 127.0.0.1:9092
+      topic: logback_to_logstash
+
+console:
+  user:
+    username: seata
+    password: seata
+
+seata:
+  config:
+    # support: nacos, consul, apollo, zk, etcd3
+    type: file
+  registry:
+    # support: nacos, eureka, redis, zk, consul, etcd3, sofa
+    type: file
+  store:
+    # support: file 、 db 、 redis
+    mode: db
+    db:
+      datasource: druid
+      dbType: mysql
+      # 需要根据mysql的版本调整driverClassName
+      # mysql8及以上版本对应的driver：com.mysql.cj.jdbc.Driver
+      # mysql8以下版本的driver：com.mysql.jdbc.Driver
+      driverClassName: com.mysql.cj.jdbc.Driver
+####  注意需要修改相应的IP、端口、数据库名、数据库的用户名及密码！！！
+#      url: jdbc:mysql://10.17.0.26:3306/mall4cloud_seata?useUnicode=true&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&rewriteBatchedStatements=true
+      url: jdbc:mysql://BaseServ-MySQL8:3306/Seata?useUnicode=true&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&rewriteBatchedStatements=true
+      user: root
+      password: P@88W0rd
+
+  #  server:
+  #    service-port: 8091 #If not configured, the default is '${server.port} + 1000'
+  security:
+    secretKey: SeataSecretKey0c382ef121d778043159209298fd40bf3850a017
+    tokenValidityInMilliseconds: 1800000
+    ignore:
+      urls: /,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-fe/public/**,/api/v1/auth/login
+
+
