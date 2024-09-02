@@ -471,6 +471,7 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+############### RocketMQ ##############
   BaseServ-RMQ-NameSrv:
     image: hub.litsoft.com.cn/tools/rocketmq:5.2.0
     container_name: BaseServ-RMQ-NameSrv
@@ -509,7 +510,7 @@ services:
       - ./RocketMQ/Broker/Store:/home/rocketmq/store
       - ./RocketMQ/Broker/broker.conf:/etc/rocketmq/broker.conf
     
-    command: ["sh","mqbroker","-c","/etc/rocketmq/broker.conf","-n","10.17.0.26:9876","autoCreateTopicEnable=true"]
+    command: ["sh","mqbroker","-c","/etc/rocketmq/broker.conf","-n","BaseServ-RMQ-NameSrv:9876","autoCreateTopicEnable=true"]
     depends_on:
       - BaseServ-RMQ-NameSrv
     ports:
@@ -530,7 +531,7 @@ services:
       - BaseServ
    
     environment:
-      JAVA_OPTS: "-Drocketmq.namesrv.addr=10.17.0.26:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=BaseServ-RMQ-NameSrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     depends_on:
       - BaseServ-RMQ-NameSrv
     ports:
