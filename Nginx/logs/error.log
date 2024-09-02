@@ -1,0 +1,140 @@
+2024/08/07 10:06:55 [emerg] 1#1: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2024/08/07 10:13:09 [emerg] 1#1: open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+2024/08/08 03:32:20 [notice] 1#1: using the "epoll" event method
+2024/08/08 03:32:20 [notice] 1#1: nginx/1.22.1
+2024/08/08 03:32:20 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/08/08 03:32:20 [notice] 1#1: OS: Linux 3.10.0-1160.95.1.el7.x86_64
+2024/08/08 03:32:20 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/08/08 03:32:20 [notice] 1#1: start worker processes
+2024/08/08 03:32:20 [notice] 1#1: start worker process 21
+2024/08/08 03:32:20 [notice] 1#1: start worker process 22
+2024/08/08 03:32:20 [notice] 1#1: start worker process 23
+2024/08/08 03:32:20 [notice] 1#1: start worker process 24
+2024/08/08 03:32:20 [notice] 1#1: start worker process 25
+2024/08/08 03:32:20 [notice] 1#1: start worker process 26
+2024/08/08 03:32:20 [notice] 1#1: start worker process 27
+2024/08/08 03:32:20 [notice] 1#1: start worker process 28
+2024/08/08 03:32:50 [error] 28#28: *1 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:33:21 [error] 25#25: *2 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:33:51 [error] 21#21: *3 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:34:21 [error] 24#24: *4 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:34:51 [error] 27#27: *5 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:35:21 [error] 26#26: *6 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:35:51 [error] 22#22: *7 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:36:21 [error] 23#23: *8 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:36:51 [error] 28#28: *9 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:37:21 [error] 28#28: *10 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:37:51 [error] 28#28: *11 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:38:22 [error] 28#28: *12 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:38:52 [error] 28#28: *13 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:39:22 [error] 28#28: *14 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:39:52 [error] 28#28: *15 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:40:22 [error] 28#28: *16 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:40:52 [error] 28#28: *17 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:41:22 [error] 28#28: *18 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:41:52 [error] 28#28: *19 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:42:22 [error] 28#28: *20 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:42:52 [error] 28#28: *21 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:43:23 [error] 28#28: *22 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:43:53 [error] 28#28: *23 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:44:23 [error] 28#28: *24 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:44:53 [error] 25#25: *25 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:45:23 [error] 25#25: *26 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:45:53 [error] 25#25: *27 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:46:23 [error] 25#25: *28 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:46:53 [error] 25#25: *29 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:47:23 [error] 25#25: *30 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:47:53 [error] 25#25: *31 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:48:23 [error] 25#25: *32 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:48:54 [error] 25#25: *33 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:49:24 [error] 25#25: *34 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:49:54 [error] 25#25: *35 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:50:24 [error] 25#25: *36 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:50:54 [error] 25#25: *37 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:51:24 [error] 25#25: *38 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:51:54 [error] 25#25: *39 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:52:24 [error] 25#25: *40 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:52:54 [error] 21#21: *41 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:53:24 [error] 21#21: *42 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:53:55 [error] 21#21: *43 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:54:25 [error] 21#21: *44 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:54:55 [error] 21#21: *45 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:55:25 [error] 21#21: *46 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:55:35 [error] 21#21: *47 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:55:51 [error] 21#21: *48 directory index of "/usr/share/nginx/html/" is forbidden, client: 172.16.0.88, server: localhost, request: "GET / HTTP/1.1", host: "10.17.0.26"
+2024/08/08 03:55:51 [error] 21#21: *48 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 172.16.0.88, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "10.17.0.26", referrer: "http://10.17.0.26/"
+2024/08/08 03:55:55 [error] 21#21: *50 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:56:25 [error] 21#21: *51 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 03:56:55 [error] 21#21: *52 directory index of "/usr/share/nginx/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2024/08/08 08:40:36 [notice] 1#1: using the "epoll" event method
+2024/08/08 08:40:36 [notice] 1#1: nginx/1.22.1
+2024/08/08 08:40:36 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/08/08 08:40:36 [notice] 1#1: OS: Linux 3.10.0-1160.95.1.el7.x86_64
+2024/08/08 08:40:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/08/08 08:40:36 [notice] 1#1: start worker processes
+2024/08/08 08:40:36 [notice] 1#1: start worker process 22
+2024/08/08 08:40:36 [notice] 1#1: start worker process 23
+2024/08/08 08:40:36 [notice] 1#1: start worker process 24
+2024/08/08 08:40:36 [notice] 1#1: start worker process 25
+2024/08/08 08:40:36 [notice] 1#1: start worker process 26
+2024/08/08 08:40:36 [notice] 1#1: start worker process 27
+2024/08/08 08:40:36 [notice] 1#1: start worker process 28
+2024/08/08 08:40:36 [notice] 1#1: start worker process 29
+2024/08/08 08:41:43 [notice] 1#1: using the "epoll" event method
+2024/08/08 08:41:43 [notice] 1#1: nginx/1.22.1
+2024/08/08 08:41:43 [notice] 1#1: built by gcc 10.2.1 20210110 (Debian 10.2.1-6) 
+2024/08/08 08:41:43 [notice] 1#1: OS: Linux 3.10.0-1160.95.1.el7.x86_64
+2024/08/08 08:41:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/08/08 08:41:43 [notice] 1#1: start worker processes
+2024/08/08 08:41:43 [notice] 1#1: start worker process 22
+2024/08/08 08:41:43 [notice] 1#1: start worker process 23
+2024/08/08 08:41:43 [notice] 1#1: start worker process 24
+2024/08/08 08:41:43 [notice] 1#1: start worker process 25
+2024/08/08 08:41:43 [notice] 1#1: start worker process 26
+2024/08/08 08:41:43 [notice] 1#1: start worker process 27
+2024/08/08 08:41:43 [notice] 1#1: start worker process 28
+2024/08/08 08:41:43 [notice] 1#1: start worker process 29
+2024/08/08 08:42:51 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/08/08 08:42:51 [notice] 24#24: gracefully shutting down
+2024/08/08 08:42:51 [notice] 28#28: gracefully shutting down
+2024/08/08 08:42:51 [notice] 26#26: gracefully shutting down
+2024/08/08 08:42:51 [notice] 22#22: gracefully shutting down
+2024/08/08 08:42:51 [notice] 26#26: exiting
+2024/08/08 08:42:51 [notice] 24#24: exiting
+2024/08/08 08:42:51 [notice] 28#28: exiting
+2024/08/08 08:42:51 [notice] 22#22: exiting
+2024/08/08 08:42:51 [notice] 26#26: exit
+2024/08/08 08:42:51 [notice] 24#24: exit
+2024/08/08 08:42:51 [notice] 28#28: exit
+2024/08/08 08:42:51 [notice] 22#22: exit
+2024/08/08 08:42:51 [notice] 23#23: gracefully shutting down
+2024/08/08 08:42:51 [notice] 23#23: exiting
+2024/08/08 08:42:51 [notice] 23#23: exit
+2024/08/08 08:42:51 [notice] 25#25: gracefully shutting down
+2024/08/08 08:42:51 [notice] 25#25: exiting
+2024/08/08 08:42:51 [notice] 25#25: exit
+2024/08/08 08:42:51 [notice] 29#29: gracefully shutting down
+2024/08/08 08:42:51 [notice] 29#29: exiting
+2024/08/08 08:42:51 [notice] 29#29: exit
+2024/08/08 08:42:51 [notice] 27#27: gracefully shutting down
+2024/08/08 08:42:51 [notice] 27#27: exiting
+2024/08/08 08:42:51 [notice] 27#27: exit
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/08/08 08:42:51 [notice] 1#1: worker process 23 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: worker process 25 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: worker process 29 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: signal 29 (SIGIO) received
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/08/08 08:42:51 [notice] 1#1: worker process 22 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: signal 29 (SIGIO) received
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2024/08/08 08:42:51 [notice] 1#1: worker process 27 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: signal 29 (SIGIO) received
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2024/08/08 08:42:51 [notice] 1#1: worker process 28 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: worker process 26 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: signal 29 (SIGIO) received
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2024/08/08 08:42:51 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/08/08 08:42:51 [notice] 1#1: worker process 24 exited with code 0
+2024/08/08 08:42:51 [notice] 1#1: exit
