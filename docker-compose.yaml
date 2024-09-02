@@ -60,7 +60,7 @@ services:
 
 
 #  BaseServ-MySQL:
-#    image: mysql:5.7
+#    image: hub.litsoft.com.cn/tools/mysql:5.7
 #    container_name: BaseServ-MySQL
 #    restart: on-failure:3   # 失败重启次数
 #    user: root
@@ -109,7 +109,7 @@ services:
 
 
   BaseServ-Redis:
-    image: redis:7.0.7
+    image: hub.litsoft.com.cn/tools/redis:7.0.7
     container_name: BaseServ-Redis
     restart: unless-stopped # 只保留了这个 restart 字段
     privileged: true
@@ -160,7 +160,7 @@ services:
 
 
   BaseServ-Nginx:
-    image: nginx:1.22
+    image: hub.litsoft.com.cn/tools/nginx:1.22
     container_name: BaseServ-Nginx
     restart: always
     user: root
@@ -373,7 +373,7 @@ services:
 
   BaseServ-Logstash:
 #    image: logstash:7.17.3
-    image: logstash:8.14.3
+    image: hub.litsoft.com.cn/tools/logstash:8.14.3
     container_name: BaseServ-Logstash
     restart: on-failure:3
     user: root
@@ -450,7 +450,8 @@ services:
 
 #  ============消息队列============
   BaseServ-RabbitMQ:
-    image: rabbitmq:3.9-management
+#    image: rabbitmq:3.9-management
+    image: hub.litsoft.com.cn/tools/rabbitmq:3.9-management
     container_name: BaseServ-RabbitMQ
     restart: always
     user: root
@@ -538,7 +539,8 @@ services:
 
 ############# Kafka #############
   BaseServ-Zookeeper:
-    image: wurstmeister/zookeeper
+#    image: wurstmeister/zookeeper
+    image: hub.litsoft.com.cn/tools/zookeeper:latest
     container_name: BaseServ-Zookeeper
     restart: always
     user: root
@@ -553,7 +555,8 @@ services:
       - BaseServ
 
   BaseServ-Kafka:
-    image: wurstmeister/kafka
+#    image: wurstmeister/kafka
+    image: hub.litsoft.com.cn/tools/kafka:latest
     container_name: BaseServ-Kafka
     restart: always
     user: root
@@ -583,7 +586,7 @@ services:
 
   # xxl-job 分布式调度中心
   BaseServ-XXL-Job:
-    image: xuxueli/xxl-job-admin:2.4.1
+    image: hub.litsoft.com.cn/tools/xxl-job-admin:2.4.1
     restart: always
     container_name: BaseServ-XXL-Job
     user: root
@@ -613,7 +616,8 @@ services:
 #########services:
 
   FDFS-Tracker:
-    image: delron/fastdfs
+#    image: delron/fastdfs
+    image:  hub.litsoft.com.cn/tools/fastdfs:latest
     container_name: FDFS-Tracker
     restart: on-failure:3
     user: root
@@ -635,7 +639,8 @@ services:
 
 
   FDFS-Storage:
-    image: delron/fastdfs
+#    image: delron/fastdfs
+    image:  hub.litsoft.com.cn/tools/fastdfs:latest
     container_name: FDFS-Storage
     restart: on-failure:3
     user: root
