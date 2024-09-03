@@ -448,28 +448,73 @@ services:
     ports:
       - "11111:11111"
 
-#  ============消息队列============
-  BaseServ-RabbitMQ:
-#    image: rabbitmq:3.9-management
-    image: hub.litsoft.com.cn/tools/rabbitmq:3.9-management
-    container_name: BaseServ-RabbitMQ
-    restart: always
-    user: root
-    privileged: true
-    hostname: BaseServ-RabbitMQ
-    networks:
-      - BaseServ
-
-    environment:
-      discovery.type: "single-node"
-      RMQ_JAVA_OPTS: "-Xms512m -Xmx512m"
-
-    volumes:
-      - /etc/localtime:/etc/localtime
-      - ./RabbitMQ/Data:/var/lib/rabbitmq #数据文件挂载
+#  ============ RabbitMQ Cluster ============
+  BaseServ-RabbitMQ1:
+    image: hub.litsoft.com.cn/tools/rabbitmq:3.13.7-management
+    container_name: BaseServ-RabbitMQ1
+    restart: on-failure:3
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "15673:15672"
+      - "5673:5672"
+    hostname: BaseServ-RabbitMQ1
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcookie
+    volumes:
+      - ./RabbitMQ/MQ1:/var/lib/rabbitmq
+      - /etc/localtime:/etc/localtime
+
+  BaseServ-RabbitMQ2:
+    image: hub.litsoft.com.cn/tools/rabbitmq:3.13.7-management
+    container_name: BaseServ-RabbitMQ2
+    restart: on-failure:3
+    ports:
+      - "15674:15672"
+      - "5674:5672"
+    hostname: BaseServ-RabbitMQ2
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcookie
+    volumes:
+      - ./RabbitMQ/MQ2:/var/lib/rabbitmq
+      - /etc/localtime:/etc/localtime
+
+  BaseServ-RabbitMQ3:
+    image: hub.litsoft.com.cn/tools/rabbitmq:3.13.7-management
+    container_name: BaseServ-RabbitMQ3
+    restart: on-failure:3
+    ports:
+      - "15675:15672"
+      - "5675:5672"
+    hostname: BaseServ-RabbitMQ3
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=rabbitcookie
+    volumes:
+      - ./RabbitMQ/MQ3:/var/lib/rabbitmq
+      - /etc/localtime:/etc/localtime
+
+
+###########
+#  BaseServ-RabbitMQ:
+##    image: rabbitmq:3.9-management
+#    image: hub.litsoft.com.cn/tools/rabbitmq:3.9-management
+#    container_name: BaseServ-RabbitMQ
+#    restart: always
+#    user: root
+#    privileged: true
+#    hostname: BaseServ-RabbitMQ
+#    networks:
+#      - BaseServ
+#
+#    environment:
+#      discovery.type: "single-node"
+#      RMQ_JAVA_OPTS: "-Xms512m -Xmx512m"
+#
+#    volumes:
+#      - /etc/localtime:/etc/localtime
+#      - ./RabbitMQ/Plugins:/plugins #插件文件挂载
+#      - ./RabbitMQ/Data:/var/lib/rabbitmq #数据文件挂载
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
 
 ############### RocketMQ ##############
   BaseServ-RMQ-NameSrv:
