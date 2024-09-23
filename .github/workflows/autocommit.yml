@@ -3,7 +3,7 @@ name: Auto commit
 on:
   schedule:
 #    - cron: "* 19 * * *"       # See https://crontab.guru/#0_7,9,11_*_*_1,3
-    - cron: "0 */2 * * *"
+    - cron: "0 */12 * * *"
 
   workflow_dispatch:
 
