@@ -160,14 +160,11 @@ services:
 
 
   BaseServ-Nginx:
-    image: hub.litsoft.com.cn/tools/nginx:1.22
+    image: hub.litsoft.com.cn/tools/nginx:1.25.5
     container_name: BaseServ-Nginx
     restart: always
     user: root
     hostname: BaseServ-Nginx
-    depends_on:
-      - BaseServ-MySQL
-
     networks:
       - BaseServ
     volumes:
@@ -186,19 +183,16 @@ services:
 
 
 
-
   BaseServ-Nacos:
-    image: hub.litsoft.com.cn/tools/nacos-server:v2.3.2
+    image: hub.litsoft.com.cn/tools/nacos-server:v2.4.3
     container_name: BaseServ-Nacos
     restart: always
     user: root
     hostname: BaseServ-Nacos
     depends_on:
       - BaseServ-MySQL
-
     networks:
       - BaseServ
-
     environment:
       - JVM_XMS=512m
       - JVM_XMX=512m
@@ -213,6 +207,7 @@ services:
       - NACOS_CORE_AUTH_PLUGIN_NACOS_TOKEN_SECRET_KEY=TWFsbDRqTWFsbDRjbG91ZE1hbGw0ak1hbGw0Y2xvdWRNYWxsNGpNYWxsNGNsb3Vk
       - NACOS_CORE_AUTH_SERVER_IDENTITY_KEY=SecretKey012345678901234567890123456789012345678901234567890123456789
       - NACOS_CORE_AUTH_SERVER_IDENTITY_VALUE=SecretKey012345678901234567890123456789012345678901234567890123456789
+##  上述三个参数为开启Nacos注册认证所需，如不需要注册认证，需注释掉。
       - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
     volumes:
       - ./Nacos/Data:/home/nacos/data
@@ -265,13 +260,11 @@ services:
     restart: on-failure:3
     user: root
     hostname: BaseServ-MinIO
-
     networks:
       - BaseServ
-
     environment:
-#      MINIO_ROOT_USER: "admin"
-#      MINIO_ROOT_PASSWORD: "minioadmin"
+      MINIO_ROOT_USER: "admin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
 
 #  MINIO_ACCESS_KEY and MINIO_SECRET_KEY are deprecated. 此方式已过时，使用上面登录
 #      MINIO_ACCESS_KEY: "root"
@@ -282,10 +275,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./Minio/Buckets:/mnt/Buckets
       - ./Minio/Data:/data #数据目录挂载
-
 #    command: server /data --console-address ":9001" #指定数据目录及console运行端口启动
     command: server /mnt/Buckets --console-address ":9001"
-
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -305,10 +296,8 @@ services:
     restart: on-failure:3
     user: root
     hostname: BaseServ-Seata
-
     networks:
       - BaseServ
-
     environment:
       TZ: "Asia/Shanghai"
       STORE_MODE: "db"
@@ -316,7 +305,6 @@ services:
       SEATA_PORT: "8091"
     volumes:
       - ./Seata/application.yml:/seata-server/resources/application.yml
-
     ports:
       - "8091:8091"
       - "7091:7091"  
@@ -336,10 +324,8 @@ services:
     container_name: BaseServ-ElasticSearch
     restart: always
     hostname: BaseServ-ElasticSearch
-
     networks:
       - BaseServ
-
     environment:
       # 此种写法是列表形式
       - "node.name=elasticsearch"
@@ -349,12 +335,10 @@ services:
       - "xpack.security.enabled=false"
       - "xpack.monitoring.collection.enabled=true"
       - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" #设置使用jvm内存大小
-
     ulimits:
       memlock:
         soft: -1
         hard: -1
-
     volumes:
 #      - ./ElasticSearch/plugins:/usr/share/elasticsearch/plugins #插件文件挂载,此镜像已安装IK，如若想要挂载，需要先docker cp 到本地目录后重启服务.
       - ./ElasticSearch/Data:/usr/share/elasticsearch/data #数据文件挂载;# 映射本地目录权限一定要设置为 777 权限，否则启动不成功
@@ -380,7 +364,6 @@ services:
     hostname: BaseServ-Logstash
     networks:
       - BaseServ
-          
     environment:
       TZ: "Asia/Shanghai"
     volumes:
@@ -437,10 +420,8 @@ services:
     restart: on-failure:3
     user: root
     hostname: BaseServ-Canal
-
     networks:
       - BaseServ
-
     volumes:
       - ./Canal/Conf/example:/home/admin/canal-server/conf/example
       - ./Canal/Conf/canal.properties:/home/admin/canal-server/conf/canal.properties
@@ -544,17 +525,14 @@ services:
     hostname: BaseServ-RMQ-Broker
     networks:
       - BaseServ
-
     environment:
       NAMESRV_ADDR: "BaseServ-RMQ-NameSrv:9876"
       JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128M -XX:-AssumeMP"
-
     volumes:
       # 映射本地目录权限一定要设置为 777 权限，否则启动不成功
       - ./RocketMQ/Broker/Logs:/home/rocketmq/logs
       - ./RocketMQ/Broker/Store:/home/rocketmq/store
       - ./RocketMQ/Broker/broker.conf:/etc/rocketmq/broker.conf
-    
     command: ["sh","mqbroker","-c","/etc/rocketmq/broker.conf","-n","BaseServ-RMQ-NameSrv:9876","autoCreateTopicEnable=true"]
     depends_on:
       - BaseServ-RMQ-NameSrv
@@ -574,7 +552,6 @@ services:
     hostname: BaseServ-RMQ-DashBoard
     networks:
       - BaseServ
-   
     environment:
       JAVA_OPTS: "-Drocketmq.namesrv.addr=BaseServ-RMQ-NameSrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     depends_on:
@@ -592,7 +569,6 @@ services:
     user: root
     privileged: true
     hostname: BaseServ-Zookeeper
-
     volumes:
       - "/etc/localtime:/etc/localtime"
     ports:
@@ -626,10 +602,6 @@ services:
 
 
 
-
-
-
-
   # xxl-job 分布式调度中心
   BaseServ-XXL-Job:
     image: hub.litsoft.com.cn/tools/xxl-job-admin:2.4.1
@@ -639,7 +611,6 @@ services:
     hostname: BaseServ-XXL-Job
     networks:
       - BaseServ
-
     environment:
 #      - PARAMS="--spring.datasource.url=jdbc:mysql://BaseServ-MySQL:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=P@88W0rd --server.port=9009   --spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver"
       PARAMS: "--spring.datasource.url=jdbc:mysql://BaseServ-MySQL:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=P@88W0rd"
@@ -713,96 +684,3 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
-
-
-
-
-#################初始配置修改参考###################
-#  FDFS-Storage:
-##    image: delron/fastdfs
-#    image: hub.litsoft.com.cn/tools/fastdfs:latest
-#    container_name: FDFS-Storage
-#    restart: on-failure:3
-#    user: root
-#    hostname: FDFS-Storage
-#    networks:
-#      - FDFS
-##    network_mode: host
-#    environment:
-#      - GROUP_NAME=group1
-##      - TRACKER_SERVER=172.17.18.66:22122
-#      - TRACKER_SERVER=FDFS-Tracker:22122
-#    volumes:
-#      - ./storage:/var/fdfs
-#    ports:
-#      - "8888:8888"
-#      - "23000:23000"
-#    entrypoint: ["/bin/sh", "-c"]
-#    command: >
-#      "echo 'Modifying storage.conf' &&
-#       sed -i 's/^port=.*/port=23000/' /etc/fdfs/storage.conf &&
-#       sed -i 's/^tracker_server=.*/tracker_server=FDFS-Tracker:22122/' /etc/fdfs/storage.conf &&
-#       echo 'Starting fdfs_storaged' &&
-#       /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start &&
-#       sleep 5 &&
-#       echo 'Listing /var/fdfs/logs/' &&
-#       ls -l /var/fdfs/logs/ &&
-#       echo 'Displaying storage.conf' &&
-#       cat /etc/fdfs/storage.conf &&
-#       tail -f /var/fdfs/logs/storaged.log"
-#    healthcheck:
-#      test: ["CMD-SHELL", "netstat -an | grep 23000"]
-#      interval: 30s
-#      timeout: 10s
-#      retries: 3
-#      start_period: 10s
-
-
-
-#---------Docker Build Demo --------------
-#
-# 
-# # 该镜像需要依赖的基础镜像
-# FROM openjdk:8-jdk-alpine
-# MAINTAINER WinJayX
-# LABEL description="This is Java Project"
-# LABEL version="0.1"
-# USER root
-# 
-# # 将当前maven目录生成的文件复制到docker容器的/目录下
-# COPY App-Name.jar /
-# 
-# ADD https://litsoft.oss-cn-beijing.aliyuncs.com/OpsTools/Alpine-Zone-Shanghai /etc/localtime
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-# RUN apk add fontconfig && fc-cache --force && echo "Asia/Shanghai" > /etc/timezone
-# 
-# # 声明服务运行在8080端口
-# EXPOSE 8080
-# # 指定docker容器启动时运行jar包
-# ENTRYPOINT ["java", "-jar","/App-Name.jar"]
-# # ENTRYPOINT java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /Lit_Reconciliation.jar
-# 
-# 
-#
-# -------------Docker Start Demo----------------
-# #docker container run -d \
-# #  --cpus 0.5 \
-# #  --memory 2g \
-# #  --user root \
-# #  --restart always \
-# #  --name Lit_Working_Hour \
-# #  --publish 10270:8080 \
-# #  --volume `pwd`/:/logs \
-# #  --hostname Lit_Working_Hour \
-# #  --env server.port=8080 \
-# #  --add-host Lit_Working_Hour:10.17.0.17 \
-# #  --env spring.profiles.active=dev \
-# #  --env spring.profiles.instaceId=1 \
-# #  --env 'JAVA_OPTS=-Xms4g -Xmx4g -Xmn3000m -Xss256k -XX:SurvivorRatio=8 -XX:ParallelGCThreads=16  -XX:CMSFullGCsBeforeCompaction=20 -XX:+UseCMSCompactAtFullCollection -XX:+PrintGCDetails' \
-# #  $REPOSITORY
-# 
-# 
-
-
-
-# nohup java -Xms1024m -Xmx2048m -jar jshERP.jar 1>start.out 2>&1 &
