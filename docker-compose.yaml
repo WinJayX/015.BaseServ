@@ -19,7 +19,7 @@ services:
 
 
   BaseServ-MySQL:
-    image: hub.litsoft.com.cn/tools/mysql:8.0.36
+    image: mysql:8.0.44
     container_name: BaseServ-MySQL
     restart: on-failure:3
     user: root
@@ -109,7 +109,7 @@ services:
 
 
   BaseServ-Redis:
-    image: hub.litsoft.com.cn/tools/redis:7.0.7
+    image: redis:8.2.2
     container_name: BaseServ-Redis
     restart: unless-stopped # 只保留了这个 restart 字段
     privileged: true
@@ -184,7 +184,7 @@ services:
 
 
   BaseServ-Nacos:
-    image: hub.litsoft.com.cn/tools/nacos-server:v2.4.3
+    image: nacos/nacos-server:v2.4.2
     container_name: BaseServ-Nacos
     restart: always
     user: root
